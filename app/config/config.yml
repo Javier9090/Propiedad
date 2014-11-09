@@ -4,7 +4,8 @@ imports:
 
 framework:
     #esi:             ~
-    translator:    ~
+    #translator:      { fallback: "%locale%" }
+    translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -78,4 +79,4 @@ fos_user:
     # el nombre de tu firewall
     firewall_name:  main
     # el namespace de tu clase 'User' específica
-    user_class:    Acme\Propiedadesbundle\Entity\Usuarios    
+    user_class:    Acme\PropiedadesBundle\Entity\Usuarios    
