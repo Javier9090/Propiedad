@@ -1,0 +1,3 @@
+_homepage:
+    path:     /
+    defaults: { _controller: AcmePropiedadesBundle:Default:index }

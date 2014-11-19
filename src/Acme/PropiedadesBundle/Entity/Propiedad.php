@@ -84,8 +84,34 @@ class Propiedad
      */
     private $observaciones;
 
-	
-	
+    	
+    /**
+    * @ORM\ManyToOne(targetEntity="Zona", inversedBy="propiedades")
+    */
+    protected $zona;
+
+     /**
+     * @ORM\OneToOne(targetEntity="TipoPropiedad", inversedBy="propiedad")
+     */
+    private $tipoPropiedad;  
+
+
+     
+    /**
+     * @ORM\ManyToMany(targetEntity="Caracteristicas");
+     * @ORM\JoinTable(name="caracteristicas_propiedades",
+     *      joinColumns={@ORM\JoinColumn(name="propiedad_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="caracteristicas_id", referencedColumnName="id")}
+     *      )
+     */
+    private $Caracteristicas;
+
+
+    public function __construct(){
+
+    $this->Caracteristicas = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }  
 
     /**
      * Get id

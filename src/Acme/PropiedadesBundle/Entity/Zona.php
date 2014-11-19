@@ -34,23 +34,27 @@ class Zona
      * @ORM\Column(name="Observaciones", type="string", length=255)
      */
     private $observaciones;
-	
-	
-	/* -----------------------------------------------  Relacion  ------------------------------------------------ */
-     /**
-     * @ORM\OneToOne(targetEntity="Zona", mappedBy="Propiedad")
-     */
-    private $Propiedad;  
-        /*---By Neg---*/
-    /* ------------------------------------------------ Fin Relacion  ---------------------------------------------------------- */
-	
-
 
     /**
      * Get id
      *
      * @return integer 
      */
+
+    /**
+    * @ORM\OneToMany(targetEntity="Propiedad", mappedBy="zona")
+    */
+
+
+    protected $propiedades;
+
+
+    public function __construct()
+    {
+    $this->propiedades= new ArrayCollection();
+    }
+
+
     public function getId()
     {
         return $this->id;

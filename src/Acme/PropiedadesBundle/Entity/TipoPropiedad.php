@@ -35,17 +35,12 @@ class TipoPropiedad
      */
     private $observaciones;
 	
-	
-	/* -----------------------------------------------  Relacion  ------------------------------------------------ */
-     /**
-     * @ORM\OneToOne(targetEntity="TipoPropiedad", mappedBy="Propiedad")
+	/**
+     * @ORM\OneToOne(targetEntity="Propiedad")
      */
-    private $Propiedad;  
-        /*---By Neg---*/
-    /* ------------------------------------------------ Fin Relacion  ---------------------------------------------------------- */
+     private $propiedad;
+
 	
-
-
     /**
      * Get id
      *
