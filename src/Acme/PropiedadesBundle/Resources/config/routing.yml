@@ -1,0 +1,19 @@
+_homepage:
+    path:     /
+    defaults: { _controller: AcmePropiedadesBundle:Default:index }
+
+AcmePropiedadesBundle_Zona:
+    resource: "@AcmePropiedadesBundle/Resources/config/routing/Zona.yml"
+    prefix:   /Zona
+
+AcmePropiedadesBundle_Caracteristicas:
+    resource: "@AcmePropiedadesBundle/Resources/config/routing/Caracteristicas.yml"
+    prefix:   /Caracteristicas
+
+AcmePropiedadesBundle_TipoPropiedad:
+    resource: "@AcmePropiedadesBundle/Resources/config/routing/TipoPropiedad.yml"
+    prefix:   /TipoPropiedad
+
+AcmePropiedadesBundle_Propiedad:
+    resource: "@AcmePropiedadesBundle/Resources/config/routing/Propiedad.yml"
+    prefix:   /Propiedad

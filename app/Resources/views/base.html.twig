@@ -1,13 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" />
+
+       <title>{% block title %}Titulo{% endblock %} | Gesti&oacute;n de Propiedades</title>
+
+</head>
+<body>
+<div class="container">
+<header class="col-md-12 col-sm-12 col-xs-12">
+	<div id="logo" class="col-md-3 col-sm-3 col-xs-12">
+<!--		<img src="img/logo.jpg">-->
+    <img src="{{ asset('img/logo.jpg') }}" alt="Logo CRESTA" />
+	</div>
+	<div class="col-md-9 col-sm-9 col-xs-12">
+	  <div id="userLogueado"> 
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <span>Usuario:</span> {{ app.user.username}} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+      {% endif %}
+    </div>
+	</div>
+</header>
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+<nav class="navbar  navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Bot&oacute;n Men&uacute;</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand visible-xs" href="#">Menú</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      	<!--Menú-->
+	<nav>
+		<ul  class = "nav nav-pills" >
+
+      <li  class= "col-md-1 col-sm-2 col-xs-12" >
+          <a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "{{ path('_homepage') }}" > 
+              Inicio
+          </a> 
+        </li>
+			   <li  class= "col-md-1 col-sm-2 col-xs-12" >
+    			<a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "#" > 
+      				Zona <span  class= "caret" ></span> 
+    			</a> 
+    			<ul  class= "dropdown-menu"  role= "menu" >
+    							              <li><a href="{{ path('propiedades_zona') }}">Listado de zonas</a></li>
+                                <li><a href="{{ path('propiedades_zona_new') }}">Nueva Zona</a></li>
+    			</ul> 
+  			</li>
+
+    		<li  class= "col-md-1 col-sm-2 col-xs-12" >
+    			<a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "#" > 
+      				Caracteristica <span  class= "caret" ></span> 
+    			</a> 
+    			<ul  class= "dropdown-menu"  role= "menu" >
+    				 <li><a href="{{ path('propiedades_caracteristicas') }}">Listado de caracteristicas</a></li>
+              <li><a href="{{ path('propiedades_caracteristicas_new') }}">Nueva caracteristica</a></li>
+    			</ul> 
+  			</li>
+
+    		<li  class= "col-md-1 col-sm-2 col-xs-12" >
+    			<a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "#" > 
+      				Tipo de propiedad <span  class= "caret" ></span> 
+    			</a> 
+    			<ul  class= "dropdown-menu"  role= "menu" >
+                                <li><a href="{{ path('propiedades_TipoPropiedad') }}">Listado de Tipos de Propiedades</a></li>
+                                <li><a href="{{ path('propiedades_TipoPropiedad_new') }}">Nuevo Tipo de Propiedad</a></li>
+    			</ul> 
+  			</li>
+
+    		<li  class= "col-md-1 col-sm-2 col-xs-12" >
+    			<a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "#" > 
+      				Propiedad <span  class= "caret" ></span> 
+    			</a> 
+    			<ul  class= "dropdown-menu"  role= "menu" >
+                                <li><a href="{{ path('propiedades_propiedad') }}">Listado de Propiedades</a></li>
+                                <li><a href="{{ path('propiedades_propiedad_new') }}">Nueva Propiedad</a></li>
+    			</ul> 
+  			
+  			</li>
+
+
+        <li  class= "col-md-1 col-sm-2 col-xs-12" >
+          <a  class= "dropdown-toggle"  data-toggle= "dropdown"  href= "#" > 
+              Usuario <span  class= "caret" ></span> 
+          </a> 
+          <ul  class= "dropdown-menu"  role= "menu" >
+                                <li><a href="{{ path('fos_user_change_password') }}">Modificar mi contraseña</a></li>
+          {% if is_granted('ROLE_ADMIN') %} 
+          <li role= "presentation" class= "dropdown-header" >Admin. Usuarios </li>
+                                <li><a href="#">Listado de usuarios</a></li>
+                                <li><a href="register">Nuevo usuario</a></li>
+
+          </ul> 
+        </li>
+        {% endif %} 
+
+		</ul>
+
+	</nav>
+	<!--fin Menú -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<!--fin Menú -->
+  {% endif %} 
+	<!--Contenido-->
+	<div id="Contenido" class="col-md-12 col-sm-12 col-xs-12" >
+ 		{% block body %}
+      {% block fos_user_content %} 
+          <!--datos FOSUser-->
+      {% endblock fos_user_content %}
+    {% endblock %} 
+	</div>
+	<!--fin Contenido-->
+	<footer class="col-md-12 col-sm-12 col-xs-12">
+		Sistema de Propiedades
+	</footer>
+</div>
+</body>
 </html>

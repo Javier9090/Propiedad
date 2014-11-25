@@ -1,0 +1,30 @@
+propiedades_caracteristicas:
+    path:     /
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:index" }
+
+propiedades_caracteristicas_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:show" }
+
+propiedades_caracteristicas_new:
+    path:     /new
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:new" }
+
+propiedades_caracteristicas_create:
+    path:     /create
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:create" }
+    requirements: { _method: post }
+
+propiedades_caracteristicas_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:edit" }
+
+propiedades_caracteristicas_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:update" }
+    requirements: { _method: post|put }
+
+propiedades_caracteristicas_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmePropiedadesBundle:Caracteristicas:delete" }
+    #requirements: { _method: post|delete }

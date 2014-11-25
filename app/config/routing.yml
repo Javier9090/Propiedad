@@ -1,6 +1,5 @@
 acme_propiedades:
-    resource: "@AcmePropiedadesBundle/Controller/"
-    type:     annotation
+    resource: "@AcmePropiedadesBundle/Resources/config/routing.yml"
     prefix:   /
     
     

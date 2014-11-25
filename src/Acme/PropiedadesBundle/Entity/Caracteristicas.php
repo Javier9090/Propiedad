@@ -34,6 +34,7 @@ class Caracteristicas
      * @ORM\Column(name="Observaciones", type="string", length=255)
      */
     private $observaciones;
+   
 
 
     /**

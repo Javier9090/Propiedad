@@ -1,0 +1,30 @@
+propiedades_TipoPropiedad:
+    path:     /
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:index" }
+
+propiedades_TipoPropiedad_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:show" }
+
+propiedades_TipoPropiedad_new:
+    path:     /new
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:new" }
+
+propiedades_TipoPropiedad_create:
+    path:     /create
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:create" }
+    requirements: { _method: post }
+
+propiedades_TipoPropiedad_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:edit" }
+
+propiedades_TipoPropiedad_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:update" }
+    requirements: { _method: post|put }
+
+propiedades_TipoPropiedad_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmePropiedadesBundle:TipoPropiedad:delete" }
+    #requirements: { _method: post|delete }
