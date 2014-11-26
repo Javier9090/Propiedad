@@ -53,6 +53,14 @@
                 <th>Tipo de Propiedad</th>
                 <td>{{ entity.TipoPropiedad.nombre }}</td>
             </tr>
+			<th>Caracteristicas</th>
+			 {% for c in ca %}
+			 <tr>
+			 
+			 <td>{{ c.nombre }}</td>
+			 
+			 </tr>
+			 {% endfor %}
            
         </tbody>
     </table>

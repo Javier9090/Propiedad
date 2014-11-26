@@ -139,6 +139,7 @@ class Propiedad
         return $this->Caracteristicas;   
 
    }
+   
     /**
      * Get id
      *

@@ -118,10 +118,12 @@ class PropiedadController extends Controller
 
 
         $deleteForm = $this->createDeleteForm($id);
+	
 		
-					
-
+$caract = $entity->getCaracteristicas();
+		
         return array(
+			'ca'          => $caract,    
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         );
